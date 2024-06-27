@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model clima {
+  id          Int       @id @default(autoincrement())
+  cidade      String?   @db.VarChar(45)
+  datahora    DateTime? @db.DateTime(0)
+  temperatura Decimal?  @db.Decimal(2, 0)
+  condicao    String?   @db.VarChar(45)
+  umidade     Decimal?  @db.Decimal(1, 0)
+}
